@@ -19,7 +19,7 @@ for die in dice:
         # rolls = math.floor(10 ** ((((die * side) - 16) / 384) * 3 + 5))
         # trials = []
         print("Rolling {2} sets of {0}d{1}".format(die, side, rolls))
-        Roll = roller2(die, side, rolls)
+        Roll = roller3(die, side, rolls)
         Roll.roll_sim()
         trials.append(["{0}d{1}".format(die, side), Roll.hands])
 
@@ -34,9 +34,9 @@ df = df.fillna(0)
 # df = df[["6d6", "6d8", "6d12", "8d6", "8d8", "8d12"]]
 df = df.sort_values(df.columns[0], axis=0, ascending=False)
 # df = df.reindex(["High", "2", "22", "3", "Straight", "32", "4", "5"])
-df = (df.div(df.sum(axis=0), axis=1) * 100).round(2)
+# df = (df.div(df.sum(axis=0), axis=1) * 100).round(2)
 
 # df.loc[:, "Percentage"] = (df.div(df.sum(axis=0), axis=1) * 100).round(2)
 
 print(df)
-df.to_csv("{2}_{0}d{1}.csv".format(dice[-1], sides[-1], rolls))
+df.to_csv("HANDS{2}_{0}d{1}.csv".format(dice[-1], sides[-1], rolls))

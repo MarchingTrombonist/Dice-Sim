@@ -36,7 +36,7 @@ class roller3:
             )
 
             # poker hands
-            if hand[0] >= 5:
+            if hand[0] >= "5":
                 hand = "5"
 
             elif "4" in hand:
